@@ -1,0 +1,8 @@
+<div class="interstitial prompt">
+    {% if section.title %}
+    <h3 class="text-center"><em class="no-widows">{{ section.title }}</em></h3>
+    {% endif %}
+    {% if section.text %}
+    <h5 class="text-center">{{ section.text | markdown }}</h5>
+    {% endif %}
+</div>

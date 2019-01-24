@@ -1,0 +1,30 @@
+<nav title="navigation" class="navbar navbar-expand-sm sticky-top navbar-light bg-light">
+  <a class="navbar-brand" href="https://www.euirim.org" title="Euirim Choi" target="_top">
+    {% if env == 'production' %}
+    <img src="images/nameplate.svg" height=32 />
+    {% else %}
+    <img src="../../images/nameplate.svg" height=32 />
+    {% endif %}
+  </a>
+
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item d-block d-sm-none">
+      <button class="btn btn-outline-dark" data-toggle="modal" data-target="#shareModal"><i class="fas fa-share-square"></i></button>
+    </li>
+     <li class="nav-item d-none d-sm-block">
+      <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u={{ META.url | urlencode }}">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li class="nav-item d-none d-sm-block">
+      <a class="btn" href="https://twitter.com/intent/tweet?url={{ META.url | urlencode }}&amp;via=euirim&amp;text={{META.share.twitter.share_tweet | urlencode}}">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li class="nav-item d-none d-sm-block">
+      <a class="btn" href="https://www.linkedin.com/shareArticle?mini=true&url={{ META.url | urlencode }}">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+  </ul>
+</nav>

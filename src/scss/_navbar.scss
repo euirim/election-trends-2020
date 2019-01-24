@@ -1,0 +1,50 @@
+@import "variables";
+
+.navbar {
+    border-bottom: 1px solid $brightness-60;
+
+    height: $navbarHeight;
+
+    .nav-item {
+        .btn {
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding: 0.25rem 0.5rem;
+            color: $brightness-0;
+        }
+
+        a:hover {
+            background-color: $primary;
+            color: white;
+            border-color: $primary;
+        }
+    }
+}
+
+.bg-light {
+    background-color: white !important;
+}
+
+.navbar-brand {
+    margin-top: -8px;
+    margin-bottom: 0;
+
+    @media screen and (max-width: 576px) {
+        margin-top: -2px;
+    }
+
+    /* Center nameplate in navbar */
+    /*
+    margin-left: auto;
+    margin-right: auto;
+    float: center;
+    */
+}
+
+.nav-social-icon {
+    font-size: 2em;
+    margin-bottom: -5px;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: -3px;
+}

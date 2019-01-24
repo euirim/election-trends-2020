@@ -1,0 +1,17 @@
+<figure class="{{ section.size }}">
+    {% if env == 'production' %}
+    <img
+        src="images/{{ section.filename | imageVersion(1800) }}"
+        srcset="images/{{ section.filename | imageVersion(400) }} 400w, images/{{ section.filename | imageVersion(800) }} 800w, images/{{ section.filename | imageVersion(1200) }} 1200w, images/{{ section.filename | imageVersion(1800) }} 1800w"
+        alt="{{ alt }}"
+        class="img-fluid"
+    />
+    {% else %}
+    <img src="../../images/{{ section.filename }}" class="img-fluid" />
+    {% endif %}
+    <figcaption class="figcaption">{{ section.caption }}{% if section.caption %}&nbsp;{% endif %}
+        <figcredit>
+            <span class="name">{{ section.credit }}</span>
+        </figcredit>
+    </figcaption>
+</figure>

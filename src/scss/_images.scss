@@ -1,0 +1,13 @@
+@import "variables";
+
+figure {
+    @include centeredBlock($mediumColWidth);
+
+    &.large {
+        max-width: $largeColWidth;
+    }
+
+    &.xlarge {
+        max-width: $xlargeColWidth;
+    }
+}

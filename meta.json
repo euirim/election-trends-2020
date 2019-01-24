@@ -1,0 +1,39 @@
+{
+  "id": "64535400430",
+  "publishPath": "article/2019/election-trends-2020/",
+  "stagingUrl": "http://euirim.org/article/2019/election-trends-2020/",
+  "url": "https://euirim.org/article/2019/election-trends-2020/",
+  "timestamp": "1996-09-06T08:13-0400",
+  "dateline": "September 6, 1996",
+  "header": {
+    "headline": "This is your headline in the metadata file",
+    "subhead": "Subhead entices the reader.",
+    "bylines": [
+      {
+        "name": "Euirim Choi",
+        "link": "https://www.euirim.org"
+      }
+    ]
+  },
+  "share": {
+    "fbook": {
+      "card_title": "election-trends-2020",
+      "card_description": "Euirim is an engineer, journalist, and aspiring scientist interested in cybersecurity, online abuse, artificial intelligence, market power.",
+      "author": "euirim"
+    },
+    "twitter": {
+      "card_title": "election-trends-2020",
+      "share_tweet": "Euirim is an engineer, journalist, and aspiring scientist interested in cybersecurity, online abuse, artificial intelligence, market power.",
+      "card_description": "Euirim is an engineer, journalist, and aspiring scientist interested in cybersecurity, online abuse, artificial intelligence, market power.",
+      "author": "@euirim"
+    },
+    "image": {
+      "url": "https://euirim.org/article/2019/election-trends-2020/images/share.jpg",
+      "alt": "<Text>",
+      "type": "image/jpeg",
+      "width": "600",
+      "height": "300"
+    },
+    "keywords": "Euirim, Choi, UChicago"
+  }
+}

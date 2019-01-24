@@ -1,0 +1,19 @@
+$sans-serif: "Inter UI", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+$serif: $sans-serif;
+$colWidth: 580px;
+// the width of items that extend beyond the base column of text
+$mediumColWidth: $colWidth;
+$largeColWidth: 780px;
+$xlargeColWidth: 1200px;
+
+/* Colors */
+$brightness-0: rgb(42, 44, 48);
+$brightness-20: rgb(86, 89, 94);
+$brightness-40: rgb(136, 139, 144);
+$brightness-60: rgb(189, 193, 198);
+$brightness-80: rgb(217, 221, 226);
+$brightness-100: rgb(255, 255, 255);
+$primary: #499FBC;
+
+/* Navbar */
+$navbarHeight: 55px;

@@ -1,0 +1,20 @@
+.interstitial {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-top: 1px solid $brightness-40;
+    border-bottom: 1px solid $brightness-40;
+}
+
+.prompt {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    @media screen and (max-width: 576px) {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    max-width: $mediumColWidth;
+    margin-left: auto;
+    margin-right: auto;
+}

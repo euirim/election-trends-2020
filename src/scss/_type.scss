@@ -1,0 +1,121 @@
+@import "variables";
+
+html {
+    font-size: 19px;
+    letter-spacing: -0.011em;
+
+    @media screen and (max-width: 576px) {
+        font-size: 18px;
+    }
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: "Verlag A", "Verlag B", "Futura", "Helvetica", sans-serif;
+    line-height: 1.5;
+}
+
+article {
+    p {
+        a {
+            color: inherit;
+            text-decoration: none;
+            /* underline without clashing with descenders */
+            border-bottom: 2px solid $primary;
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: $primary;
+        }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        max-width: $colWidth;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section-header {
+        margin-top: 2em;
+        font-size: 1.6em;
+    }
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $sans-serif;
+    font-style: normal;
+    font-weight: 700;
+}
+
+p {
+    font-family: $serif;
+    font-style: normal;
+    font-weight: 400;
+    max-width: $colWidth;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+figcaption {
+    margin-top: 1em;
+    font-family: $sans-serif;
+    color: $brightness-20;
+    font-size: 0.9em;
+}
+
+figcredit {
+    color: $brightness-40;
+    font-size: 0.7em;
+
+    .name {
+        text-transform: uppercase;
+    }
+}
+
+article {
+    hr {
+        background-color: $brightness-40;
+        width: $mediumColWidth;
+    }
+}
+
+.btn {
+    text-transform: uppercase;
+    border-radius: 0px;
+
+    * {
+        font-weight: bold;
+    }
+}
+
+.blockcap {
+    font-family: $sans-serif;
+    font-weight: bold;
+    font-size: 4em;
+    line-height: 1;
+    text-align: center;
+    float: left;
+    display: block;
+    position: relative;
+    width: 1em;
+    color: $brightness-0;
+}
+
+.share-list {
+    a {
+        color: $brightness-0;
+    }
+}

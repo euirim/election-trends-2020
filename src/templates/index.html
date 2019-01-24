@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% macro jpg(name, alt='Image') %}
+<img
+  src="images/{{ name }}-1800.jpg"
+  srcset="images/{{ name }}-400.jpg 400w, images/{{ name }}-800.jpg 800w, images/{{ name }}-1200.jpg 1200w, images/{{ name }}-1800.jpg 1800w"
+  alt="{{ alt }}"
+/>
+{% endmacro %}
+
+{% block title %}{{ ARCHIE.headline }}{% endblock %}
+
+{% block content %}
+  {% include "blocks/nav.html" %}
+
+  {% include "blocks/header.html" %}
+  <article class="container-fluid">
+    {% for section in ARCHIE.sections %}
+      {% include "sections/" + section.type + ".html" %}
+    {% endfor %}
+
+    <!-- Comments -->
+    {% include "meta/comments.html" %}
+  </article>
+
+  {% include "blocks/share_modal.html" %}
+
+  <script type="text/javascript">window.tweetText = "{{META.share.twitter.share_tweet}}";</script>
+{% endblock %}

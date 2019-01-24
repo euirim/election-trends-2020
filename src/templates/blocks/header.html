@@ -1,0 +1,36 @@
+<header class="center container-fluid">
+  <!-- social icons -->
+  <!--
+  <ul class="social-icons">
+    <li><a class="facebook-social-icon" href="https://www.facebook.com/sharer/sharer.php?u={{ META.url | urlencode }}"><i class="fab fa-facebook-square"></i></a></li>
+    <li><a class="twitter-social-icon" href="https://twitter.com/intent/tweet?url={{ META.url | urlencode }}&amp;via=chicagomaroon&amp;text={{META.share.twitter.share_tweet | urlencode}}"><i class="fab fa-twitter-square"></i></a></li>
+    <li><a class="linkedin-social-icon" href="https://www.linkedin.com/shareArticle?mini=true&url={{ META.url | urlencode }}"><i class="fab fa-linkedin"></i></a></li>
+  </ul>
+  -->
+
+  <div class="info">
+    <p class="timestamp"> <time datetime="{{ META.timestamp }}">{{ META.dateline }}</time></p>
+    <h1 class="head no-widows">
+      {{ ARCHIE.headline }}
+    </h1>
+    <p class="subhead no-widows">
+      {{ ARCHIE.subhead }}
+    </p>
+  </div>
+
+  {% if META.header.image %}
+  {% set section=META.header.image %}
+  {% include "sections/image.html" %}
+  {% endif %}
+
+  <div class="info">
+    <p class="byline">
+      By
+      {% for byline in META.header.bylines %}
+      {{ ", " if not loop.first and loop.index > 2 }}
+      {{ " & " if loop.last and loop.index > 1 }}
+      <span class="byline-name"><a href="{{ byline.link }}">{{ byline.name }}</a></span></span>
+      {% endfor %}
+    </p>
+  </div>
+</header>

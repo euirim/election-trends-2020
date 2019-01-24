@@ -1,0 +1,7 @@
+{
+  "generator-euirim-projects": {
+    "promptValues": {
+      "lintProfile": "airbnb"
+    }
+  }
+}
