@@ -12,7 +12,8 @@ module.exports = {
     glob.sync('./src/js/main-*.js*').map(f => [
       'webpack-hot-middleware/client?reload=true',
       f,
-    ])),
+    ]),
+  ),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/[name].bundle.js',

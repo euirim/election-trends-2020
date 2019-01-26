@@ -1,14 +1,1 @@
-{
-  "headline": "Test Headline",
-  "subhead": "This is a sample subhead. Make it yours!",
-  "sections": [
-    {
-      "type": "text",
-      "text": "After the demise of the Second Triumvirate, Augustus restored the outward façade of the free Republic, with governmental power vested in the Roman Senate, the executive magistrates, and the legislative assemblies. In reality, however, he retained his autocratic power over the Republic as a military dictator. By law, Augustus held a collection of powers granted to him for life by the Senate, including supreme military command, and those of tribune and censor."
-    },
-    {
-      "type": "text",
-      "text": "The reign of Augustus initiated an era of relative peace known as the Pax Romana. The Roman world was largely free from large-scale conflict for more than two centuries, despite continuous wars of imperial expansion on the Empire's frontiers and the year-long civil war known as the \"Year of the Four Emperors\" over the imperial succession. Augustus dramatically enlarged the Empire, annexing Egypt, Dalmatia, Pannonia, Noricum, and Raetia, expanding possessions in Africa, and completing the conquest of Hispania, but suffered a major setback in Germania. Beyond the frontiers, he secured the Empire with a buffer region of client states and made peace with the Parthian Empire through diplomacy."
-    }
-  ]
-}
+{"headline":"2020 Election Social Ranking","subhead":"Keeping track of 2020 candidates’ Twitter mentions over time.","sections":[{"type":"chart_24h"},{"type":"text","text":"I’ll tell ye how fate thought proper to order the matter. By moving my left foot, as I told you, I unluckily tumbled my friend Eriban, the Persian merchant, into the water, and he was drowned. My friend, it seems, had a very handsome wife, that ran away with an Armenian merchant: this lady had a daughter, who married a Greek; the daughter of this Greek settled in France, and married the father of Ravaillac. Now, had not every tittle of this happened exactly as it did, you are very sensible the affairs of the houses of France and Austria would have turned out in a very different manner. The system of Europe would have been entirely changed. The wars between Turkey and the German Empire would have had quite another issue; which issue would have had an effect on Persia, as well as Persia on the East Indies; so you see it is plain to a demonstration, that the whole depended on my left foot, which was connected with all the other events of the universe, past, present, and to come."}]}

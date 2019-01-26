@@ -1,4 +1,5 @@
 import "../scss/main.scss";
+import Charts from './charts.js';
 
 /*
 window.$('.icon-facebook').click((e) => {
@@ -38,3 +39,5 @@ widowElements.map(function () {
   }
 });
 */
+
+Charts.load();

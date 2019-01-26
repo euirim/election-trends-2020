@@ -71,8 +71,12 @@
     "yargs": "12.0.1"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-eslint": "^10.0.1",
     "bootstrap": "^4.2.1",
+    "chart.js": "^2.7.3",
+    "d3": "^5.7.0",
+    "dayjs": "^1.8.0",
     "eslint": "3.19.0",
     "eslint-config-airbnb": "17.1.0",
     "eslint-plugin-import": "2.14.0",
