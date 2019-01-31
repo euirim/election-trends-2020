@@ -9,7 +9,7 @@
 
 import axios from "axios";
 
-const API_ROOT = 'http://localhost/api'
+const API_ROOT = 'http://18.220.160.176/api'
 
 /**
  * Create an Axios Client with defaults
