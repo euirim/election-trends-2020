@@ -25,7 +25,7 @@ function processRawOneDayData(records) {
         for (let j=0; j < candidates.length; j++) {
             let candidate = candidates[j];
             let tweetCount = payload.keyphrases[candidate].twitter.tweet_count;
-            let percent = tweetCount / total_tweet_count * 100;
+            let percent = tweetCount;
             let instance = {
                 t: record.time_created, 
                 y: percent
