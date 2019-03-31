@@ -7,7 +7,7 @@ let Data = {
     allTimeData: null,
 };
 
-function processRawOneDayData(records) {
+function processRawOneDayData(records, activeKeyphrases) {
     let datasets = {};
     for (let i=0; i < records.length; i++) {
         let record = records[i];
@@ -24,6 +24,10 @@ function processRawOneDayData(records) {
         let candidates = Object.keys(payload.keyphrases);
         for (let j=0; j < candidates.length; j++) {
             let candidate = candidates[j];
+
+            // don't count if keyphrase is not active
+            if (!activeKeyphrases.includes(candidate)) continue; 
+
             let tweetCount = payload.keyphrases[candidate].twitter.tweet_count;
             let percent = tweetCount;
             let instance = {
@@ -43,22 +47,86 @@ function processRawOneDayData(records) {
 
     // unpack object into dataset array appropriate format for Chart.js
     let candidates = Object.keys(datasets);
+    let initialCandidates = ["Joe Biden", "Bernie Sanders", "Kamala Harris"];
     let result = [];
     for (let i=0; i < candidates.length; i++) {
         let candidate = candidates[i];
+        let hidden = !initialCandidates.includes(candidate);
         result.push({
             label: candidate,
             data: datasets[candidate],
-            hidden: true,
+            hidden: hidden,
             fill: false,
-            borderColor: Colors.random()
+            borderColor: Object.values(Colors.names)[i]
         });
     } 
 
     return result;
 }
 
-function genData() {
+function processRawAllTimeData(records, activeKeyphrases) {
+    let datasets = {};
+    for (let i=0; i < records.length; i++) {
+        let payload = records[i];
+        // Skip record if payload is empty
+        if (
+            (payload == null) || (Object.entries(payload).length === 0)) {
+            continue
+        }
+
+        let candidates = activeKeyphrases;
+        for (let j=0; j < candidates.length; j++) {
+            let candidate = candidates[j];
+
+            let tweetCount = payload[candidate];
+            let percent = tweetCount;
+
+            let dateComps = payload["Date"].split('-');
+            console.log(parseInt(dateComps[0]));
+            /*
+            let d = dayjs()
+                .month(parseInt(dateComps[0]))
+                .day(parseInt(dateComps[1]))
+                .year(parseInt(dateComps[2]));
+            */
+            let d = [dateComps[2], dateComps[0], dateComps[1]].join('-')
+            console.log(d);
+
+            let instance = {
+                t: new Date(d), 
+                y: percent
+            };
+
+            if (datasets[candidate] == null) {
+                datasets[candidate] = [instance];
+            } else {
+                datasets[candidate].push(
+                    instance
+                );
+            }
+        }
+    }
+
+    // unpack object into dataset array appropriate format for Chart.js
+    let candidates = Object.keys(datasets);
+    let initialCandidates = ["Joe Biden", "Bernie Sanders", "Kamala Harris"];
+    let result = [];
+    for (let i=0; i < candidates.length; i++) {
+        let candidate = candidates[i];
+        let hidden = !initialCandidates.includes(candidate);
+        result.push({
+            label: candidate,
+            data: datasets[candidate],
+            hidden: hidden,
+            fill: false,
+            borderColor: Object.values(Colors.names)[i]
+        });
+    } 
+
+    return result;
+}
+
+function gen24hData(activeKeyphrases) {
     // load 24h data
     return API.genLast24hRecords()
         .then(res => {
@@ -66,13 +134,25 @@ function genData() {
                 return;
             }
 
-            return processRawOneDayData(res);
+            return processRawOneDayData(res, activeKeyphrases);
         });
 }
 
-function render24hChart(id, data) {
+function genAllTimeData(activeKeyphrases) {
+    // load all time data
+    return API.genRecordsByDay()
+        .then(res => {
+            if (!res || (res.length == 0)) {
+                return;
+            }
+
+            return processRawAllTimeData(res, activeKeyphrases);
+        });
+}
+
+function renderChart(id, data, unit) {
     const ctx = id;    
-    let chart24h = new Chart(ctx, {
+    let chart = new Chart(ctx, {
         type: 'line',
         data: {
             datasets: data,
@@ -82,7 +162,12 @@ function render24hChart(id, data) {
                 xAxes: [{
                     type: 'time',
                     time: {
-                        unit: 'hour'
+                        unit: unit
+                    }
+                }],
+                yAxes: [{
+                    ticks: {
+                        display: true
                     }
                 }]
             },
@@ -113,9 +198,13 @@ function renderCharts(data24h) {
 }
 
 function load() {
-    genData().then(res => {
-        console.log(res);
-        renderCharts(res);
+    API.genKeyphrasesToDisplay().then(activeKeyphrases => {
+        gen24hData(activeKeyphrases).then(res => {
+            renderChart('chart-24h', res, 'hour');
+        });
+        genAllTimeData(activeKeyphrases).then(res => {
+            renderChart('chart-all-time', res, 'day');
+        });
     });
 }
 
