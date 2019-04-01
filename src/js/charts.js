@@ -7,7 +7,7 @@ let Data = {
     allTimeData: null,
 };
 
-function processRawOneDayData(records, activeKeyphrases) {
+function processRawOneDayData(records, activeKeyphrases, colors) {
     let datasets = {};
     for (let i=0; i < records.length; i++) {
         let record = records[i];
@@ -57,14 +57,17 @@ function processRawOneDayData(records, activeKeyphrases) {
             data: datasets[candidate],
             hidden: hidden,
             fill: false,
-            borderColor: Object.values(Colors.names)[i]
+            borderColor: colors[candidate]
         });
     } 
+
+    // sort candidates alphabetically
+    result.sort((a, b) => a.label > b.label);
 
     return result;
 }
 
-function processRawAllTimeData(records, activeKeyphrases) {
+function processRawAllTimeData(records, activeKeyphrases, colors) {
     let datasets = {};
     for (let i=0; i < records.length; i++) {
         let payload = records[i];
@@ -82,15 +85,8 @@ function processRawAllTimeData(records, activeKeyphrases) {
             let percent = tweetCount;
 
             let dateComps = payload["Date"].split('-');
-            console.log(parseInt(dateComps[0]));
-            /*
-            let d = dayjs()
-                .month(parseInt(dateComps[0]))
-                .day(parseInt(dateComps[1]))
-                .year(parseInt(dateComps[2]));
-            */
+
             let d = [dateComps[2], dateComps[0], dateComps[1]].join('-')
-            console.log(d);
 
             let instance = {
                 t: new Date(d), 
@@ -119,14 +115,17 @@ function processRawAllTimeData(records, activeKeyphrases) {
             data: datasets[candidate],
             hidden: hidden,
             fill: false,
-            borderColor: Object.values(Colors.names)[i]
+            borderColor: colors[candidate]
         });
     } 
+
+    // sort candidates alphabetically (for legend)
+    result.sort((a, b) => a.label > b.label);
 
     return result;
 }
 
-function gen24hData(activeKeyphrases) {
+function gen24hData(activeKeyphrases, colorAssignments) {
     // load 24h data
     return API.genLast24hRecords()
         .then(res => {
@@ -134,11 +133,15 @@ function gen24hData(activeKeyphrases) {
                 return;
             }
 
-            return processRawOneDayData(res, activeKeyphrases);
+            return processRawOneDayData(
+                res, 
+                activeKeyphrases, 
+                colorAssignments
+            );
         });
 }
 
-function genAllTimeData(activeKeyphrases) {
+function genAllTimeData(activeKeyphrases, colorAssignments) {
     // load all time data
     return API.genRecordsByDay()
         .then(res => {
@@ -146,7 +149,11 @@ function genAllTimeData(activeKeyphrases) {
                 return;
             }
 
-            return processRawAllTimeData(res, activeKeyphrases);
+            return processRawAllTimeData(
+                res, 
+                activeKeyphrases, 
+                colorAssignments
+            );
         });
 }
 
@@ -197,15 +204,30 @@ function renderCharts(data24h) {
     render24hChart('chart-24h', data24h);
 }
 
+function assignColors(keyphrases) {
+    let colors = Object.values(Colors.names);
+    let pairs = keyphrases.map((k, i) => [k, colors[i]]);
+
+    let result = {};
+    pairs.forEach(data => {
+        result[data[0]] = data[1];
+    });
+
+    return result;
+}
+
 function load() {
     // Make 24h chart invisible to start
     document.getElementById("chart-24h").style.display = "none";
 
     API.genKeyphrasesToDisplay().then(activeKeyphrases => {
-        gen24hData(activeKeyphrases).then(res => {
+        // assign colors
+        let colorAssignments = assignColors(activeKeyphrases);
+
+        gen24hData(activeKeyphrases, colorAssignments).then(res => {
             renderChart('chart-24h', res, 'hour');
         });
-        genAllTimeData(activeKeyphrases).then(res => {
+        genAllTimeData(activeKeyphrases, colorAssignments).then(res => {
             renderChart('chart-all-time', res, 'day');
         });
     });
