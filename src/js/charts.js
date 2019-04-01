@@ -191,7 +191,8 @@ function renderChart(id, data, unit) {
                 labels: {
                     fontFamily: '"Inter UI", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif',
                     fontSize: 16,
-                    padding: 20
+                    padding: 20,
+                    usePointStyle: true,
                 },
             },
             spanGaps: true,
