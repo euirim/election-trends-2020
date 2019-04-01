@@ -41,3 +41,15 @@ widowElements.map(function () {
 */
 
 Charts.load();
+
+// Add event listeners for chart controls
+document.getElementById("all-time-button").addEventListener("click", function() {
+  Charts.showChart("chart-all-time");
+  document.getElementById("all-time-button").className = "active";
+  document.getElementById("24h-button").className = "";
+});
+document.getElementById("24h-button").addEventListener("click", function() {
+  Charts.showChart("chart-24h");
+  document.getElementById("all-time-button").className = "";
+  document.getElementById("24h-button").className = "active";
+});

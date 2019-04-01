@@ -10,4 +10,28 @@
     &.xlarge {
         max-width: $xlargeColWidth;
     }
+
+    #controls {
+        text-align: center;
+        margin-bottom: 1em;
+        a {
+            text-decoration: none;
+            padding: 0.5em;
+            border: 1px solid #333;
+            text-transform: uppercase;
+            font-size: 0.8em;
+            cursor: pointer;
+
+            &#all-time-button {
+                margin-right: 0.5em;
+            }
+
+            &.active {
+                color: white;
+                background-color: $primary;
+                font-weight: bold;
+                border-color: $primary;
+            }
+        }
+    }
 }

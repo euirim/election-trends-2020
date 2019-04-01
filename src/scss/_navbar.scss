@@ -2,6 +2,7 @@
 
 .navbar {
     border-bottom: 1px solid $brightness-60;
+    background-color: $brightness-0;
 
     height: $navbarHeight;
 
@@ -10,7 +11,7 @@
             font-size: 0.8rem;
             font-weight: bold;
             padding: 0.25rem 0.5rem;
-            color: $brightness-0;
+            color: $brightness-100;
         }
 
         a:hover {
@@ -26,8 +27,12 @@
 }
 
 .navbar-brand {
-    margin-top: -8px;
+    margin-top: -4px;
     margin-bottom: 0;
+    span {
+        color: $brightness-100;
+        font-weight: bold;
+    }
 
     @media screen and (max-width: 576px) {
         margin-top: -2px;

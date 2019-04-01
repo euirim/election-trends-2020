@@ -198,6 +198,9 @@ function renderCharts(data24h) {
 }
 
 function load() {
+    // Make 24h chart invisible to start
+    document.getElementById("chart-24h").style.display = "none";
+
     API.genKeyphrasesToDisplay().then(activeKeyphrases => {
         gen24hData(activeKeyphrases).then(res => {
             renderChart('chart-24h', res, 'hour');
@@ -208,8 +211,20 @@ function load() {
     });
 }
 
+function showChart(id) {
+    document.getElementById(
+        id
+    ).style.display = "block";
+    let opposite = "chart-24h";
+    if (id == opposite) opposite = "chart-all-time";
+    document.getElementById(
+        opposite
+    ).style.display = "none";
+}
+
 const Charts = {
     load,
+    showChart,
 };
 
 export default Charts;
