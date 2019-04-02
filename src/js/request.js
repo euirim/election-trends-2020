@@ -17,9 +17,6 @@ const API_ROOT = 'http://18.220.160.176/api'
 const client = axios.create({
   // baseURL: constants.api.url
   baseURL: API_ROOT,
-  headers: {
-	  'Access-Control-Allow-Origin': '*',
-	},
 });
 
 
