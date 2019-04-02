@@ -1,13 +1,13 @@
 {
   "id": "64535400430",
-  "publishPath": "/2020-election-twitter-mentions/",
-  "stagingUrl": "https://projects.euirim.org/2020-election-twitter-mentions/",
-  "url": "https://projects.euirim.org/2020-election-twitter-mentions/",
+  "publishPath": "/2020-twitter-election/",
+  "stagingUrl": "https://projects.euirim.org/2020-twitter-election/",
+  "url": "https://projects.euirim.org/2020-twitter-election/",
   "timestamp": "2019-04-03T08:13-0400",
   "dateline": "April 3, 2019",
   "header": {
-    "headline": "2020 Election Twitter Trends",
-    "subhead": "Keeping track of 2020 candidates’ Twitter mentions over time.",
+    "headline": "The 2020 Twitter Election",
+    "subhead": "Tracking the number of tweets over time mentioning major candidates in the 2020 U.S. Presidential Election.",
     "bylines": [
       {
         "name": "Euirim Choi",
@@ -17,14 +17,14 @@
   },
   "share": {
     "fbook": {
-      "card_title": "2020 Election Twitter Trends",
-      "card_description": "Keeping track of 2020 candidates’ Twitter mentions over time.",
+      "card_title": "The 2020 Twitter Election",
+      "card_description": "Tracking the number of tweets over time mentioning major candidates in the 2020 U.S. Presidential Election.",
       "author": "euirim"
     },
     "twitter": {
-      "card_title": "2020 Election Twitter Trends",
-      "share_tweet": "Keeping track of 2020 candidates’ Twitter mentions over time.",
-      "card_description": "Keeping track of 2020 candidates’ Twitter mentions over time.",
+      "card_title": "The 2020 Twitter Election",
+      "share_tweet": "The number of tweets over time mentioning major candidates in the 2020 U.S. Presidential Election.",
+      "card_description": "Tracking the number of tweets over time mentioning major candidates in the 2020 U.S. Presidential Election.",
       "author": "@euirim"
     },
     "image": {
