@@ -4,7 +4,7 @@
   "description": "A Euirim project.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"No tests\" && exit 1"
+    "build": "gulp build"
   },
   "author": {
     "name": "Euirim Choi",

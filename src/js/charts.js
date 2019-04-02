@@ -170,7 +170,8 @@ function renderChart(id, data, unit) {
                     type: 'time',
                     time: {
                         unit: unit
-                    }
+                    },
+                    maxTicksLimit: 10
                 }],
                 yAxes: [{
                     ticks: {
@@ -196,7 +197,8 @@ function renderChart(id, data, unit) {
                 },
             },
             spanGaps: true,
-            responsive: true,	
+            responsive: true,
+            maintainAspectRatio: false,
         }
     });
 }

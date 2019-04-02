@@ -2,6 +2,7 @@
 
 .chart {
     @include centeredBlock($mediumColWidth);
+    margin-bottom: 4em;
 
     &.large {
         max-width: $largeColWidth;
@@ -33,5 +34,24 @@
                 border-color: $primary;
             }
         }
+    }
+
+    @media only screen and (min-width: 1px) {
+        height: 1400px;
+    }
+    @media only screen and (min-width: 250px) {
+        height: 1000px;
+    }
+    @media only screen and (min-width: 350px)  {
+        height: 700px;
+    }
+    @media only screen and (min-width: 450px)  {
+        height: 650px;
+    }
+    @media only screen and (min-width: 500px)  {
+        height: 600px;
+    }
+    @media only screen and (min-width: 600px)  {
+        height: 500px;
     }
 }

@@ -23,4 +23,14 @@
   {% include "sections/image.html" %}
   {% endif %}
 
+  <div class="info">
+    <p class="byline">
+      By
+      {% for byline in META.header.bylines %}
+      {{ ", " if not loop.first and loop.index > 2 }}
+      {{ " & " if loop.last and loop.index > 1 }}
+      <span class="byline-name"><a href="{{ byline.link }}">{{ byline.name }}</a></span></span>
+      {% endfor %}
+    </p>
+  </div>
 </header>
