@@ -9,7 +9,7 @@ let Data = {
 
 function processRawOneDayData(records, activeKeyphrases, colors) {
     let datasets = {};
-    for (let i=0; i < records.length; i++) {
+    for (let i = 0; i < records.length; i++) {
         let record = records[i];
         let payload = record.payload;
         // Skip record if payload is empty
@@ -22,16 +22,16 @@ function processRawOneDayData(records, activeKeyphrases, colors) {
         let total_tweet_count = payload.total_tweet_count;
 
         let candidates = Object.keys(payload.keyphrases);
-        for (let j=0; j < candidates.length; j++) {
+        for (let j = 0; j < candidates.length; j++) {
             let candidate = candidates[j];
 
             // don't count if keyphrase is not active
-            if (!activeKeyphrases.includes(candidate)) continue; 
+            if (!activeKeyphrases.includes(candidate)) continue;
 
             let tweetCount = payload.keyphrases[candidate].twitter.tweet_count;
-            let percent = tweetCount;
+            let percent = tweetCount / 10; // to extrapolate from 1% and show in thousands
             let instance = {
-                t: record.time_created, 
+                t: record.time_created,
                 y: percent
             };
 
@@ -49,7 +49,7 @@ function processRawOneDayData(records, activeKeyphrases, colors) {
     let candidates = Object.keys(datasets);
     let initialCandidates = ["Joe Biden", "Bernie Sanders", "Kamala Harris"];
     let result = [];
-    for (let i=0; i < candidates.length; i++) {
+    for (let i = 0; i < candidates.length; i++) {
         let candidate = candidates[i];
         let hidden = !initialCandidates.includes(candidate);
         result.push({
@@ -59,7 +59,7 @@ function processRawOneDayData(records, activeKeyphrases, colors) {
             fill: false,
             borderColor: colors[candidate]
         });
-    } 
+    }
 
     // sort candidates alphabetically
     result.sort((a, b) => a.label > b.label);
@@ -69,7 +69,7 @@ function processRawOneDayData(records, activeKeyphrases, colors) {
 
 function processRawAllTimeData(records, activeKeyphrases, colors) {
     let datasets = {};
-    for (let i=0; i < records.length; i++) {
+    for (let i = 0; i < records.length; i++) {
         let payload = records[i];
         // Skip record if payload is empty
         if (
@@ -78,18 +78,18 @@ function processRawAllTimeData(records, activeKeyphrases, colors) {
         }
 
         let candidates = activeKeyphrases;
-        for (let j=0; j < candidates.length; j++) {
+        for (let j = 0; j < candidates.length; j++) {
             let candidate = candidates[j];
 
             let tweetCount = payload[candidate];
-            let percent = tweetCount;
+            let percent = tweetCount / 10; // to extrapolate from 1% and show in thousands
 
             let dateComps = payload["Date"].split('-');
 
             let d = [dateComps[2], dateComps[0], dateComps[1]].join('-')
 
             let instance = {
-                t: new Date(d), 
+                t: new Date(d),
                 y: percent
             };
 
@@ -107,7 +107,7 @@ function processRawAllTimeData(records, activeKeyphrases, colors) {
     let candidates = Object.keys(datasets);
     let initialCandidates = ["Joe Biden", "Bernie Sanders", "Kamala Harris"];
     let result = [];
-    for (let i=0; i < candidates.length; i++) {
+    for (let i = 0; i < candidates.length; i++) {
         let candidate = candidates[i];
         let hidden = !initialCandidates.includes(candidate);
         result.push({
@@ -117,7 +117,7 @@ function processRawAllTimeData(records, activeKeyphrases, colors) {
             fill: false,
             borderColor: colors[candidate]
         });
-    } 
+    }
 
     // sort candidates alphabetically (for legend)
     result.sort((a, b) => a.label > b.label);
@@ -134,8 +134,8 @@ function gen24hData(activeKeyphrases, colorAssignments) {
             }
 
             return processRawOneDayData(
-                res, 
-                activeKeyphrases, 
+                res,
+                activeKeyphrases,
                 colorAssignments
             );
         });
@@ -150,15 +150,15 @@ function genAllTimeData(activeKeyphrases, colorAssignments) {
             }
 
             return processRawAllTimeData(
-                res, 
-                activeKeyphrases, 
+                res,
+                activeKeyphrases,
                 colorAssignments
             );
         });
 }
 
 function renderChart(id, data, unit) {
-    const ctx = id;    
+    const ctx = id;
     let chart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -175,7 +175,13 @@ function renderChart(id, data, unit) {
                 }],
                 yAxes: [{
                     ticks: {
-                        display: true
+                        display: true,
+                        userCallback: function (value, index, values) {
+                            value = value.toString();
+                            value = value.split(/(?=(?:...)*$)/);
+                            value = value.join(',');
+                            return value;
+                        }
                     }
                 }]
             },
@@ -221,10 +227,11 @@ function assignColors(keyphrases) {
 
 function load() {
     // Make 24h chart invisible to start
-    document.getElementById("chart-24h").style.display = "none";
+    document.getElementById("chart-all-time").style.display = "none";
 
     API.genKeyphrasesToDisplay().then(activeKeyphrases => {
         // assign colors
+        activeKeyphrases.sort();
         let colorAssignments = assignColors(activeKeyphrases);
 
         gen24hData(activeKeyphrases, colorAssignments).then(res => {

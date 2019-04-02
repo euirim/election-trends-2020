@@ -37,19 +37,22 @@
     }
 
     @media only screen and (min-width: 1px) {
-        height: 1400px;
-    }
-    @media only screen and (min-width: 250px) {
         height: 1000px;
     }
-    @media only screen and (min-width: 350px)  {
-        height: 700px;
+    @media only screen and (min-width: 250px) {
+        height: 900px;
     }
-    @media only screen and (min-width: 450px)  {
-        height: 650px;
+    @media only screen and (min-width: 300px) {
+        height: 850px;
+    }
+    @media only screen and (min-width: 350px)  {
+        height: 625px;
+    }
+    @media only screen and (min-width: 400px)  {
+        height: 600px;
     }
     @media only screen and (min-width: 500px)  {
-        height: 600px;
+        height: 575px;
     }
     @media only screen and (min-width: 600px)  {
         height: 500px;
