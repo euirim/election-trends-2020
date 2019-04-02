@@ -3,11 +3,11 @@
   "publishPath": "article/2019/2020-election-twitter-mentions/",
   "stagingUrl": "https://euirim.org/article/2019/2020-election-twitter-mentions/",
   "url": "https://euirim.org/article/2019/2020-election-twitter-mentions/",
-  "timestamp": "1996-09-06T08:13-0400",
+  "timestamp": "2019-04-02T08:13-0400",
   "dateline": "April 2, 2019",
   "header": {
-    "headline": "This is your headline in the metadata file",
-    "subhead": "Subhead entices the reader.",
+    "headline": "2020 Election Twitter Trends",
+    "subhead": "Keeping track of 2020 candidates’ Twitter mentions over time.",
     "bylines": [
       {
         "name": "Euirim Choi",
@@ -17,23 +17,23 @@
   },
   "share": {
     "fbook": {
-      "card_title": "election-trends-2020",
-      "card_description": "Euirim is an engineer, journalist, and aspiring scientist interested in cybersecurity, online abuse, artificial intelligence, market power.",
+      "card_title": "2020 Election Twitter Trends",
+      "card_description": "Keeping track of 2020 candidates’ Twitter mentions over time.",
       "author": "euirim"
     },
     "twitter": {
-      "card_title": "election-trends-2020",
-      "share_tweet": "Euirim is an engineer, journalist, and aspiring scientist interested in cybersecurity, online abuse, artificial intelligence, market power.",
-      "card_description": "Euirim is an engineer, journalist, and aspiring scientist interested in cybersecurity, online abuse, artificial intelligence, market power.",
+      "card_title": "2020 Election Twitter Trends",
+      "share_tweet": "Keeping track of 2020 candidates’ Twitter mentions over time.",
+      "card_description": "Keeping track of 2020 candidates’ Twitter mentions over time.",
       "author": "@euirim"
     },
     "image": {
-      "url": "https://euirim.org/article/2019/election-trends-2020/images/share.jpg",
+      "url": "https://euirim.org/article/2019/2020-election-twitter-mentions/images/share.jpg",
       "alt": "<Text>",
       "type": "image/jpeg",
       "width": "600",
       "height": "300"
     },
-    "keywords": "Euirim, Choi, UChicago"
+    "keywords": "Euirim Choi, UChicago, 2020 Election, Twitter, Social Trends"
   }
 }
