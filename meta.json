@@ -17,12 +17,12 @@
   },
   "share": {
     "fbook": {
-      "card_title": "The 2020 Twitter Election",
+      "card_title": "The 2020 Twitter Election: How Is Your Candidate Doing?",
       "card_description": "Tracking the number of Twitter mentions of major candidates in the 2020 U.S. Presidential Election over time.",
       "author": "euirim"
     },
     "twitter": {
-      "card_title": "The 2020 Twitter Election",
+      "card_title": "The 2020 Twitter Election: How Is Your Candidate Doing?",
       "share_tweet": "Tracking the number of Twitter mentions of major candidates in the 2020 U.S. Presidential Election over time.",
       "card_description": "Tracking the number of Twitter mentions of major candidates in the 2020 U.S. Presidential Election over time.",
       "author": "@euirim"
