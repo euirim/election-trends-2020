@@ -7,7 +7,7 @@
   "dateline": "April 3, 2019",
   "header": {
     "headline": "The 2020 Twitter Election",
-    "subhead": "Tracking the number of tweets over time mentioning major candidates in the 2020 U.S. Presidential Election.",
+    "subhead": "Tracking the number of Twitter mentions of major candidates in the 2020 U.S. Presidential Election over time.",
     "bylines": [
       {
         "name": "Euirim Choi",
@@ -18,17 +18,17 @@
   "share": {
     "fbook": {
       "card_title": "The 2020 Twitter Election",
-      "card_description": "Tracking the number of tweets over time mentioning major candidates in the 2020 U.S. Presidential Election.",
+      "card_description": "Tracking the number of Twitter mentions of major candidates in the 2020 U.S. Presidential Election over time.",
       "author": "euirim"
     },
     "twitter": {
       "card_title": "The 2020 Twitter Election",
-      "share_tweet": "The number of tweets over time mentioning major candidates in the 2020 U.S. Presidential Election.",
-      "card_description": "Tracking the number of tweets over time mentioning major candidates in the 2020 U.S. Presidential Election.",
+      "share_tweet": "Tracking the number of Twitter mentions of major candidates in the 2020 U.S. Presidential Election over time.",
+      "card_description": "Tracking the number of Twitter mentions of major candidates in the 2020 U.S. Presidential Election over time.",
       "author": "@euirim"
     },
     "image": {
-      "url": "https://projects.euirim.org/2020-election-twitter-mentions/images/share.jpg",
+      "url": "https://projects.euirim.org/2020-twitter-election/images/share-1200.png",
       "alt": "<Text>",
       "type": "image/jpeg",
       "width": "600",
