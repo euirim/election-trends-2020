@@ -3,7 +3,7 @@
 | Title | election-trends-2020 |
 |-|-|
 | Developer    | [Euirim Choi](euirim@gmail.com) |
-| Link | [https://euirim.org/article/2019/election-trends-2020/](https://euirim.org/article/2019/election-trends-2020/) |
+| Link | [https://projects.euirim.org/2020-twitter-election/](https://projects.euirim.org/2020-twitter-election/) |
 
 ## Usage
 To start the development server, run `gulp`.
